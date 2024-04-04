@@ -17,10 +17,10 @@ export const PublicProject: React.FC<Props> = ({ name, imageSrc, profession, uni
         <Grid item xs={12} md={6}>
           <Paper style={{  height: '100%', padding:'2rem' }}>
             <Typography variant="h4" gutterBottom>{name}</Typography>
-            <Box sx={{position: 'relative'}}>
+            <Box sx={{position: 'relative'}} component="div">
             <img src={imageSrc} alt={name} loading='lazy' style={{ width: '100%', objectFit: 'cover', height: '30rem'}} /> 
 
-            <Box sx={{ position: 'absolute', bottom: '7px', left: 0, right: 0, padding: '1rem', backgroundColor: 'rgba(0, 0, 0, 0.7)'}}>
+            <Box sx={{ position: 'absolute', bottom: '7px', left: 0, right: 0, padding: '1rem', backgroundColor: 'rgba(0, 0, 0, 0.7)'}} component="div">
               <Typography variant="body1" paragraph>
                 <strong>Profession:</strong> {profession}
               </Typography>

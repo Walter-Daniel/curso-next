@@ -14,8 +14,9 @@ export const HeroComponent: React.FC = () => {
         alignItems: 'center',
         justifyContent: 'center',
         animation: 'parallaxBackground 10s linear infinite alternate',
-
+        
       }}
+      component="div"
     >
       <Container>
         <Grid container spacing={2}>

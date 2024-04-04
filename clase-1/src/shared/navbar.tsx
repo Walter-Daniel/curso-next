@@ -55,7 +55,7 @@ export const Navbar = (props: Props) => {
   });
 
   return (
-    <Box sx={{ display: 'flex' }} id="scrollButton">
+    <Box sx={{ display: 'flex' }} id="scrollButton" component="div">
       <AppBar 
         component="nav" 
         elevation={0} 

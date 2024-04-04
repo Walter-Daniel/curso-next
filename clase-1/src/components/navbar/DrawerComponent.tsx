@@ -16,8 +16,8 @@ export const DrawerComponent: FC<Props> = ({ handleDrawerToggle }) => {
 
   return (
     <>
-      <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0.5rem' }}>
+      <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }} component="div">
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0.5rem' }} component="div">
           <img src={logo} loading='lazy' alt="Logo Bon Appétit" style={{ height: '2.9rem' }} />
           <Typography
             variant="h1"
