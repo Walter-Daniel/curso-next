@@ -26,6 +26,7 @@ export const FormContact = () => {
   });
 
   const handleSubmit = (values: FormValues, { setSubmitting, resetForm }: any) => {
+    console.log(values)
     setTimeout(() => {
       getSuccess( 'Message sent successfully' );
       resetForm();

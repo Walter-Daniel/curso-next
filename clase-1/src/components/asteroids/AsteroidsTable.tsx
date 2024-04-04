@@ -10,6 +10,7 @@ export const AsteroidsTable = () => {
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
   const handleChangePage = (event: unknown, newPage: number) => {
+      console.log(event)
       setPage(newPage);
   };
   
