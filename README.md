@@ -8,7 +8,7 @@ AstroWiki es un blog que se conecta con la API de la NASA para proporcionar info
 
 ## Configuración
 
-Antes de ejecutar este proyecto, asegúrate de tener configuradas las siguientes variables de entorno:
+Antes de ejecutar este proyecto, asegúrate de tener configuradas las siguientes variables de entorno: 
 
 ```plaintext
 VITE_API_KEY=aZZuKotkO0LwAfqzZgrtaxwBoigLiP9b1MkrQXFi
