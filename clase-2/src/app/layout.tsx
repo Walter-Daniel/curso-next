@@ -22,7 +22,7 @@ export default function RootLayout({
           <div className='h-24'>
             <Navbar />
           </div>
-          <div className="flex-grow">
+          <div className="">
 
           {children}
 
