@@ -35,7 +35,7 @@ export const APODComponent: React.FC<ApodDetailsProps> = ({ apodData }) => {
     };
 
     return (
-        <Grid container sx={{ minHeighteight: '100vh', marginTop:'6rem' }}>
+        <Grid container sx={{ minHeighteight: '100vh', marginTop:'6rem' }} id="apod">
             {/* Primera sección con la información */}
             <Grid item xs={12} md={6}>
                 <Paper sx={{ padding:'2rem', height:'100%' }}>

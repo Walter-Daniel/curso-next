@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Button, Container, Grid, Stack, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 
 export const HeroComponent: React.FC = () => {
@@ -35,11 +36,13 @@ export const HeroComponent: React.FC = () => {
             Welcome to ASTROWIKI, your portal to the mysteries of the universe. Explore galaxies, stars, planets, and more as we embark on an enlightening journey through the cosmos.
             </Typography>
             <Stack direction='row' gap='2rem' marginTop='2rem'>
-            <Button variant="contained" color="primary" fullWidth>
+            <Button variant="contained" href='#apod' color="primary" fullWidth>
               See more
             </Button>
             <Button variant="outlined" color="primary" fullWidth>
-              Login
+              <Link to='/contact' style={{width:'100%', color:'white', textDecoration:'none'}}>
+                Contact
+              </Link>
             </Button>
             </Stack>
           </Grid>
