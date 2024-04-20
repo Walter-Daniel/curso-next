@@ -78,7 +78,7 @@ export default function HomePage() {
           <div className="w-1/2 ml-8">
             <h2 className="text-3xl font-bold mb-4">Disfruta de experiencias únicas</h2>
             <p className="text-lg mb-4">"Cómo vivir sin verte si se que pertenezco a esa región en donde la emoción le gana siempre a la razón, porque Argentina tiene locas golondrinas en el corazón, en donde la esperanza, siempre inventa algún color, y la gente no se cansa de soñar y dar amor." - Eladia Blázquez</p>
-            <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md">Ver más</button>
+            <Link href='/recommendations' className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md">Recomendaciones</Link>
           </div>
         </div>
       </div>
