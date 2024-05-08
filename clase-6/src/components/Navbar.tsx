@@ -5,6 +5,7 @@ import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, Navbar
 import { onAuthStateChanged, signOut, User } from "firebase/auth";
 import { auth } from "@/lib/firebase-config";
 import Link from "next/link";
+import { Title } from "./Title";
 
 export const NavbarComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -48,24 +49,24 @@ export const NavbarComponent = () => {
         />
         <NavbarBrand>
           
-          <p className="font-bold text-inherit">Purple.dev</p>
+          <Title size="3xl">Purple.dev</Title>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
           <Link color="foreground" href="#">
-            Features
+            Inicio
           </Link>
         </NavbarItem>
         <NavbarItem isActive>
           <Link href="#" aria-current="page">
-            Customers
+            Recomendaciones
           </Link>
         </NavbarItem>
         <NavbarItem>
           <Link color="foreground" href="#">
-            Integrations
+            About
           </Link>
         </NavbarItem>
       </NavbarContent>
@@ -74,16 +75,16 @@ export const NavbarComponent = () => {
         (!user) ? (
          <>
           <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
+          <Link href="/auth/login">Iniciar Sesión</Link>
         </NavbarItem>
         <NavbarItem>
           <Button
            as={Link} 
-           href="#" 
+           href="/auth/register" 
            variant="flat" 
            className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
           >
-            Sign Up
+            Registrate
           </Button>
         </NavbarItem>
          </>

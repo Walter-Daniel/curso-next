@@ -12,11 +12,11 @@ export const FormAuth: FC<FormProps> = ({register, errors}) => {
     <div>
         {/* Email */}
         <div className="flex flex-col pb-5 relative">
-                <label htmlFor="email" className="pb-1">Email</label>
+                <label htmlFor="email" className="pb-1">Correo</label>
                 <input 
                   type="email" 
                   id="email"
-                  placeholder="Enter your email here..." 
+                  placeholder="Ingresa tu correo" 
                   className="border-small rounded-md p-2 border-gray-400"
                   {...register('email')}
                   />
@@ -26,11 +26,11 @@ export const FormAuth: FC<FormProps> = ({register, errors}) => {
             </div>
             {/* Password */}
             <div className="flex flex-col pb-5 relative">
-                <label htmlFor="password" className="pb-1">Password</label>
+                <label htmlFor="Contraseña" className="pb-1">Password</label>
                 <input 
                   type="password" 
                   id="password"
-                  placeholder="Enter your password here..." 
+                  placeholder="Ingresa tu contraseña" 
                   className="border-small rounded-md p-2 border-gray-400 font-medium" 
                   {...register('password')}
                   />
