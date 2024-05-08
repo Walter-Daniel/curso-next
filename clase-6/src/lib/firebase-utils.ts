@@ -1,11 +1,11 @@
-import { Router } from "next/router";
 import { auth } from "./firebase-config";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 type AuthProps = {
     email: string;
     password: string;
-    router: Router;
+    router: AppRouterInstance;
     isSignUp: boolean
 }
 
@@ -46,5 +46,6 @@ const getAuth = async ({email, password, router, isSignUp}:AuthProps) => {
     })
   }
 }
+
 
 export { getAuth }

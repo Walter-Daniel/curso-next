@@ -5,11 +5,11 @@ import Link from "next/link";
 
 import { userSchema } from "@/validations/user-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FormAuth } from '../components/FormAuth';
-import { Inputs } from '../types/auth';
-import { ButtonForm } from '../components/ButtonForm';
+import { FormAuth, ButtonForm } from '@/components';
+import { Inputs } from '@/types/auth';
 import { FcAdvance } from 'react-icons/fc';
 import { getAuth } from '@/lib/firebase-utils';
+import { useRouter } from 'next/navigation';
 
 
 export default function RegisterPage() {
@@ -18,19 +18,22 @@ export default function RegisterPage() {
     resolver: zodResolver(userSchema)
   });
 
+  const router = useRouter();
+
   const handleGoogleSignIn = async() => {
     console.log('hola')
   }
 
+
   const createUser = async(email:string, password:string, displayName:string) => {
-    // await signUp(email, password, displayName);
-    console.log(email, password, displayName)
+    const isSignUp = true;
+    getAuth({email, password, router, isSignUp} )
+    reset()
   }
 
   const onSubmit:SubmitHandler<Inputs> = (data) => {
     const { email, password, displayName } = data;
     createUser(email, password, displayName)
-    // reset()
   }
 
   return (

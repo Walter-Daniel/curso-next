@@ -1,10 +1,31 @@
 'use client'
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button} from "@nextui-org/react";
+import { onAuthStateChanged, signOut, User } from "firebase/auth";
+import { useRouter } from "next/navigation";
+import { auth } from "@/lib/firebase-config";
+import { cookies } from "next/headers";
 
 export const NavbarComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+        
+    return () => unsubscribe();
+  }, []);
+
+
+  // console.log(user?.email)
+
+  const handlerLogout = () => {
+    signOut(auth)
+    // console.log('hola')
+  }
 
   const menuItems = [
     "Profile",
@@ -50,7 +71,10 @@ export const NavbarComponent = () => {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
+       {
+        (!user) ? (
+         <>
+          <NavbarItem className="hidden lg:flex">
           <Link href="#">Login</Link>
         </NavbarItem>
         <NavbarItem>
@@ -58,6 +82,17 @@ export const NavbarComponent = () => {
             Sign Up
           </Button>
         </NavbarItem>
+         </>
+        ) :
+        (
+          
+        <NavbarItem>
+          <Button as={Link} color="primary" href="#" variant="flat" onClick={handlerLogout}>
+            Logout
+          </Button>
+        </NavbarItem>
+        )
+       }
       </NavbarContent>
       <NavbarMenu>
         {menuItems.map((item, index) => (

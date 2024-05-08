@@ -1,5 +1,4 @@
-import { NavbarComponent } from "../components";
-import { Hero } from "../components/Hero";
+import { NavbarComponent, Hero } from "@/components";
 
 
 export default function RootLayout({

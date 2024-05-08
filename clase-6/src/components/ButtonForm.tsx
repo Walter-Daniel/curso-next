@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import Image from 'next/image'
-import Button from './Button'
+import { Button } from './Button'
 
 interface ButtonProps {
     handleGoogleSignIn: () => Promise<void>
