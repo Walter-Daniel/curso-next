@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Titan_One } from "next/font/google";
+import { Button } from "@nextui-org/react";
 
 const titan = Titan_One({weight:"400", subsets: ["latin"] });
 
@@ -13,15 +14,18 @@ export const Hero = () => {
         <span className="block mb-4 text-xs md:text-sm text-orange-500 font-medium">
           Recomenda tu favorita
         </span>
-        <h3 className={`text-4xl md:text-6xl ${titan.className}`}>
+        <h3 className={`text-4xl md:text-6xl ${titan.className} text-white`}>
           Sandwicherias Tucumán
         </h3>
-        <p className="text-base md:text-lg text-slate-500 my-4 md:my-6">
+        <p className="text-base md:text-lg text-slate-400 my-4 md:my-6">
           Un lugar en donde podrás encontrar los mejores sitios para comer el mejor sandwich de milanesa de Tucumán.
         </p>
-        <button className="bg-orange-500 text-white font-medium py-2 px-4 rounded transition-all hover:bg-indigo-600 active:scale-95">
+        {/* <button className="bg-orange-500 text-white font-medium py-2 px-4 rounded transition-all hover:bg-indigo-600 active:scale-95">
           Seguir leyendo
-        </button>
+        </button> */}
+        <Button color="secondary">
+          Seguir leyendo
+        </Button>
       </div>
       <ShuffleGrid />
     </section>

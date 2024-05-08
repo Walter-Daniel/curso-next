@@ -10,8 +10,8 @@ interface ButtonProps {
 
 export const Button: React.FC<ButtonProps> = ({ children, variant = 'primary', fullWidth = false, type='button', ...props }) => {
   const classes = {
-    primary: 'bg-black 	text-white font-bold py-2 px-4 rounded',
-    secondary: 'bg-rose-400 ease-in-out duration-300 hover:bg-rose-500 text-white font-bold py-2 px-4 rounded',
+    primary: 'bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg 	text-white py-2 px-4 rounded-xl',
+    secondary: 'border border-white ease-in-out duration-300 hover:bg-rose-500 text-white text-sm py-3 px-4 rounded-xl',
     fullWidth: 'w-full'
   };
 

@@ -8,11 +8,9 @@ export default function RootLayout({
 }>) {
   return (
       <div>
-          <div className="dark text-foreground bg-background">
           <NavbarComponent/>
           <Hero />
           {children}
-          </div>
       </div>
   );
 }

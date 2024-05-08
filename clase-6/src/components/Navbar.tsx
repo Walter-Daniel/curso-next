@@ -1,11 +1,10 @@
 'use client'
 
 import React, { useEffect, useState } from "react";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button} from "@nextui-org/react";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Button} from "@nextui-org/react";
 import { onAuthStateChanged, signOut, User } from "firebase/auth";
-import { useRouter } from "next/navigation";
 import { auth } from "@/lib/firebase-config";
-import { cookies } from "next/headers";
+import Link from "next/link";
 
 export const NavbarComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -49,7 +48,7 @@ export const NavbarComponent = () => {
         />
         <NavbarBrand>
           
-          <p className="font-bold text-inherit">Purple.cam</p>
+          <p className="font-bold text-inherit">Purple.dev</p>
         </NavbarBrand>
       </NavbarContent>
 
@@ -78,7 +77,12 @@ export const NavbarComponent = () => {
           <Link href="#">Login</Link>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
+          <Button
+           as={Link} 
+           href="#" 
+           variant="flat" 
+           className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
+          >
             Sign Up
           </Button>
         </NavbarItem>
@@ -87,7 +91,7 @@ export const NavbarComponent = () => {
         (
           
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat" onClick={handlerLogout}>
+          <Button as={Link} color="warning" href="#" variant="flat" onClick={handlerLogout}>
             Logout
           </Button>
         </NavbarItem>
@@ -103,7 +107,6 @@ export const NavbarComponent = () => {
               }
               className="w-full"
               href="#"
-              size="lg"
             >
               {item}
             </Link>

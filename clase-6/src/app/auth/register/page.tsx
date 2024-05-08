@@ -37,8 +37,7 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="h-screen">
-      <div className="w-[100%] h-[100%] flex justify-center items-center">
+   
         <form onSubmit={handleSubmit(onSubmit)} className="bg-white bg-opacity-60 backdrop-filter backdrop-blur-lg mx-5 md:mx-0 p-5 md:p-10 w-[100%] md:w-2/3 lg:w-1/3 rounded-xl shadow-xl fade-in">
           <div className="flex justify-end mb-5">
             <h2 className='text-3xl uppercase'>Register</h2>
@@ -85,7 +84,6 @@ export default function RegisterPage() {
               </Link>
             </div>
         </form>
-      </div>
-    </div>
+     
   );
 }
