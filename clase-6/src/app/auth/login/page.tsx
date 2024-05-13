@@ -1,17 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signInSchema } from "@/validations/user-schema";
 import { Inputs } from "@/types/auth";
 import { FormAuth, ButtonForm, Title } from "@/components";
-import { FcAdvance } from "react-icons/fc";
 import { FaHome } from "react-icons/fa";
 import { getAuth } from "@/lib/firebase-utils";
 import { useRouter } from "next/navigation";
-
 
 export default function LoginPage() {
   const router = useRouter();

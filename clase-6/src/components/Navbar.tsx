@@ -6,6 +6,7 @@ import { onAuthStateChanged, signOut, User } from "firebase/auth";
 import { auth } from "@/lib/firebase-config";
 import Link from "next/link";
 import { Title } from "./Title";
+import { CustomButton } from "./Button";
 
 export const NavbarComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -19,25 +20,20 @@ export const NavbarComponent = () => {
     return () => unsubscribe();
   }, []);
 
-
-  // console.log(user?.email)
-
   const handlerLogout = () => {
     signOut(auth)
-    // console.log('hola')
   }
 
   const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
+    {
+      title: 'Inicio',
+      href: '/'
+    },
+    {
+      title: 'blog',
+      href: '/'
+    },
+
   ];
 
   return (
@@ -49,67 +45,61 @@ export const NavbarComponent = () => {
         />
         <NavbarBrand>
           
-          <Title size="3xl">Purple.dev</Title>
+          <Title size="2xl">Purple.dev</Title>
         </NavbarBrand>
       </NavbarContent>
-
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Inicio
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive>
-          <Link href="#" aria-current="page">
-            Recomendaciones
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            About
-          </Link>
-        </NavbarItem>
+       {
+        menuItems.map((item, index) => (
+          <NavbarItem key={index}>
+            <Link color="foreground" href={item.href}>
+              {item.title}
+            </Link>
+          </NavbarItem>
+        ))
+       }
       </NavbarContent>
       <NavbarContent justify="end">
        {
         (!user) ? (
          <>
           <NavbarItem className="hidden lg:flex">
-          <Link href="/auth/login">Iniciar Sesión</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button
-           as={Link} 
-           href="/auth/register" 
-           variant="flat" 
-           className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
-          >
-            Registrate
-          </Button>
-        </NavbarItem>
+            <Link href="/auth/login">Iniciar Sesión</Link>
+          </NavbarItem>
+          <NavbarItem>
+            <Button
+            as={Link} 
+            href="/auth/register" 
+            className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
+            >
+              Registrarse
+            </Button>
+          </NavbarItem>
          </>
         ) :
         (
-          
-        <NavbarItem>
-          <Button as={Link} color="warning" href="#" variant="flat" onClick={handlerLogout}>
-            Logout
-          </Button>
-        </NavbarItem>
+          <>
+            <NavbarItem className="">
+              <Link href="/profile">Perfil</Link>
+            </NavbarItem>
+            <NavbarItem>
+              <CustomButton onClick={handlerLogout}>
+                Cerrar sesión
+              </CustomButton>
+            </NavbarItem>
+          </>
         )
        }
       </NavbarContent>
+      {/* MOBILE */}
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
-              color={
-                index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
-              }
               className="w-full"
-              href="#"
+              href={item.href}
             >
-              {item}
+              {item.title}
             </Link>
           </NavbarMenuItem>
         ))}

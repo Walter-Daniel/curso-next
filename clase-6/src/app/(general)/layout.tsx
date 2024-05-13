@@ -9,7 +9,6 @@ export default function RootLayout({
   return (
       <div>
           <NavbarComponent/>
-          <Hero />
           {children}
       </div>
   );

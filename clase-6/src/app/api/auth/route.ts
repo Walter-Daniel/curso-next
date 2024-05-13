@@ -18,6 +18,7 @@ export async function POST(request:NextRequest, response:NextResponse) {
       const sessionCookie = await auth().createSessionCookie(idToken, {
         expiresIn,
       });
+      
       const options = {
         name: process.env.COOKIE_SESSION_NAME as string,
         value: sessionCookie,
