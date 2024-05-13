@@ -40,8 +40,6 @@ export default function BlogPage() {
     fetchRecommendation();
   }, []);
 
-  console.log(recommendation)
-
   return (
     <div className="container mx-auto px-4 min-h-[90vh]">
       <h1 className="text-3xl font-bold text-center mb-8 text-white">Recommendations</h1>
@@ -51,7 +49,7 @@ export default function BlogPage() {
         
                 !recommendation ? <p>Not found recommendations</p>  : (
                     recommendation.recommendations.map((item, index) => (
-                        <div key={index}>
+                        <div key={index} className="border border-white">
                             <h2>{item.title}</h2>
                             <p>{item.message}</p>
                         </div>

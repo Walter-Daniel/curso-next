@@ -26,12 +26,12 @@ export const NavbarComponent = () => {
 
   const menuItems = [
     {
-      title: 'Inicio',
+      title: 'Home',
       href: '/'
     },
     {
-      title: 'blog',
-      href: '/'
+      title: 'Blog',
+      href: '/blog'
     },
 
   ];
