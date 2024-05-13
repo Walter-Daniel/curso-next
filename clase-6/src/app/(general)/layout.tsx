@@ -1,5 +1,4 @@
-import { NavbarComponent } from "../components";
-import { Hero } from "../components/Hero";
+import { NavbarComponent, Hero } from "@/components";
 
 
 export default function RootLayout({
@@ -9,11 +8,8 @@ export default function RootLayout({
 }>) {
   return (
       <div>
-          <div className="dark text-foreground bg-background">
           <NavbarComponent/>
-          <Hero />
           {children}
-          </div>
       </div>
   );
 }
