@@ -17,7 +17,7 @@ export const FormAuth: FC<FormProps> = ({register, errors}) => {
                   type="email" 
                   id="email"
                   placeholder="jhon@example.com" 
-                  className="border-small rounded-md p-2 bg-white border border-gray-300 font-medium"
+                  className="border-small rounded-md p-2 bg-white border-gray-300 font-medium"
                   {...register('email')}
                   />
                   {
@@ -31,7 +31,7 @@ export const FormAuth: FC<FormProps> = ({register, errors}) => {
                   type="password" 
                   id="password"
                   placeholder="Insert your password here" 
-                  className="border-small rounded-md p-2 border border-gray-300 font-medium" 
+                  className="border-small rounded-md p-2 border-gray-300 font-medium" 
                   {...register('password')}
                   />
                   {

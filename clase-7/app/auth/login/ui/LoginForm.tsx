@@ -5,7 +5,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { signInSchema } from '@/app/validations/user-schema';
 import { Inputs } from '@/app/interfaces/auth';
-import { FormAuth, Title } from '@/components';
+import { Alert, FormAuth, Title } from '@/components';
 import Image from 'next/image';
 
 import googleIMG from '@/public/google.png'
@@ -60,10 +60,17 @@ export const LoginForm = () => {
         </Title>
       </div>
       <FormAuth register={register} errors={errors} />
+      {/* ALERT */}
+      {
+        error && <Alert message={error} type='error' onClose={() => setError("")} />
+      }
+      {
+        success && <Alert  message={success} type='success'  onClose={() => setSuccess("")}/>
+      }
       {/* BUTTONS */}
       <Button type='submit'
         disabled={isPending}
-        className={`text-white rounded-md p-2 w-full ${isPending ? 'bg-gray-400' : 'bg-black'}`}
+        className={`text-white rounded-md p-2 w-full ${isPending ? 'bg-gray-400' : 'bg-black'} mt-2`}
         fullWidth>
         Login
       </Button>
