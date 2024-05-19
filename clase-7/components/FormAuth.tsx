@@ -1,4 +1,4 @@
-import { Inputs } from '../interfaces/auth';
+import { Inputs } from '../app/interfaces/auth';
 import { FC } from 'react';
 import { FieldErrors, UseFormRegister } from 'react-hook-form'
 
