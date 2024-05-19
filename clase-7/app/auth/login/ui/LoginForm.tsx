@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { signInSchema } from '@/app/validations/user-schema';
+import { signInSchema } from '@/validations/user-schema';
 import { Inputs } from '@/app/interfaces/auth';
 import { Alert, FormAuth, Title } from '@/components';
 import Image from 'next/image';

@@ -1,8 +1,9 @@
 'use server'
 
-import { signInSchema } from '@/app/validations/user-schema';
+import { signInSchema } from '@/validations/user-schema';
 import { signIn } from '@/auth';
 import * as z from 'zod';
+import bcrypt from 'bcrypt';
  
 export const authenticate = async(
 //   prevState: string | undefined,
@@ -20,6 +21,8 @@ export const authenticate = async(
         }, 5000);
         return {error: 'Invalid credentials'};
     }
+
+    const { email, password  } = validatedFields.data;
 
     return { success: 'Email sent!' }
 }
