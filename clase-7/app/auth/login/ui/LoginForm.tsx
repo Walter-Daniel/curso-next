@@ -6,10 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { signInSchema } from '@/validations/user-schema';
 import { Inputs } from '@/app/interfaces/auth';
 import { Alert, FormAuth, Title } from '@/components';
-import Image from 'next/image';
 
-import googleIMG from '@/public/google.png'
-import githubIMG from '@/public/github.png'
 import { authenticate } from '@/actions/auth/login';
 import { useState, useTransition } from 'react';
 import { Button } from '@nextui-org/react';
@@ -74,31 +71,10 @@ export const LoginForm = () => {
         fullWidth>
         Login
       </Button>
-      <div className='md:flex gap-2 pt-4'>
-        <button 
-          className='border border-gray-400 p-2 rounded-md w-full flex justify-center hover:bg-gray-300 
-                      transition-bg duration-300 '>
-          <Image 
-            src={googleIMG}
-            alt=''
-            width={25}
-            height={25}
-          />
-        </button>
-        <button className='border border-gray-400 p-2 rounded-md w-full flex justify-center hover:bg-gray-300 
-                      transition-bg duration-300'>
-          <Image 
-            src={githubIMG}
-            alt=''
-            width={25}
-            height={25}
-          />
-        </button>
-      </div>
       <div className='flex gap-2 pt-3'>
-        <p className='text-sm'>No tienes una cuenta?</p>
+        <p className='text-sm'>Don't have an account?</p>
         <Link href={'/auth/register'} className='underline text-sm'>
-          Registrate
+          Sign up
         </Link>
       </div>
     </form>

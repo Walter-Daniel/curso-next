@@ -50,11 +50,11 @@ export const RegisterForm = () => {
           </div>
             {/* Name */}
             <div className="flex flex-col pb-5 relative" >
-                <label htmlFor="displayName" className="pb-1">Nombre completo</label>
+                <label htmlFor="displayName" className="pb-1">Name</label>
                 <input 
                   type="text" 
                   id="displayName"
-                  placeholder="Ingresa tu nombre completo" 
+                  placeholder="John Wick" 
                   className="border-small rounded-md p-2 border-gray-400" 
                   {...register('displayName')}
                   />
@@ -65,11 +65,11 @@ export const RegisterForm = () => {
             <FormAuth register={register} errors={errors}/>
             {/* Password Confirm */}
             <div className="flex flex-col pb-5 relative">
-                <label htmlFor="confirmPassword" className="pb-1">Confirmar contraseña</label>
+                <label htmlFor="confirmPassword" className="pb-1">Password confirm</label>
                 <input 
                   type="password" 
                   id="confirmPassword"
-                  placeholder="Ingresa tu contraseña" 
+                  placeholder="Insert your password here" 
                   className="border-small rounded-md p-2 border-gray-400"
                   {...register('confirmPassword')}
                   />
@@ -91,36 +91,9 @@ export const RegisterForm = () => {
                 fullWidth>
                 Login
             </Button>
-      <div className='md:flex gap-2 pt-4'>
-        <button 
-          className='border border-gray-400 p-2 rounded-md w-full flex justify-center hover:bg-gray-300 
-                      transition-bg duration-300 '>
-          <Image 
-            src={googleIMG}
-            alt=''
-            width={25}
-            height={25}
-          />
-        </button>
-        <button className='border border-gray-400 p-2 rounded-md w-full flex justify-center hover:bg-gray-300 
-                      transition-bg duration-300'>
-          <Image 
-            src={githubIMG}
-            alt=''
-            width={25}
-            height={25}
-          />
-        </button>
-      </div>
-            
             <div className="flex gap-2 pt-3">
-              <p className='text-small'>Ya tienes una cuenta?</p>
-              <Link href={'/auth/login'} className="underline text-small">Ingresa</Link>
-            </div>
-            <div className="flex gap-2 pt-3 justify-end items-center">
-              <Link href={'/'} className="text-black text-sm">
-                Regresar al inicio
-              </Link>
+              <p className='text-small'>Already have an account?</p>
+              <Link href={'/auth/login'} className="underline text-small">Login</Link>
             </div>
         </form>
      

@@ -1,16 +1,19 @@
 'use client'
 
+import { getMovies } from '@/actions/movies/getMovies';
+import { Movies } from '@/app/interfaces/movies';
 import { useEffect, useState } from 'react';
+import { CardComponent } from './CardComponent';
 
 export const ListMovies = () => {
-  const [filmsData, setFilmsData] = useState<any[]>([]);
+  const [filmsData, setFilmsData] = useState<Movies[]>([]);
 
   useEffect(() => {
-    const getMovies = async() => {
-        const movies = await fetch(`/api/movies`)
-        console.log(movies)
+    const fetchMovies = async() => {
+        const movies = await getMovies();
+        setFilmsData(movies)
     }
-    getMovies();
+    fetchMovies();
   }, []);
 
   if (!filmsData.length) {
@@ -19,14 +22,11 @@ export const ListMovies = () => {
 
   return (
     <div>
-      <h1>Ghibli Films</h1>
-      <ul>
+      <div className='flex flex-wrap justify-center'>
         {filmsData.map((film) => (
-          <li key={film.id}>
-            {film.title} ({film.release_date})
-          </li>
+          <CardComponent  movie={film}/>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

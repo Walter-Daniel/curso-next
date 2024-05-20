@@ -1,4 +1,4 @@
-export interface RootObject {
+export interface Movies {
     description:              string;
     director:                 string;
     id:                       string;
@@ -16,5 +16,4 @@ export interface RootObject {
     title:                    string;
     url:                      string;
     vehicles:                 string[];
-   }
-   
+}

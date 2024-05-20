@@ -1,7 +1,8 @@
-import { NextResponse } from "next/server";
+'use server'
 
-export async function GET(request: Request) { 
+export async function getMovies()  {
 
+    
    try {
     const apiResponse = await fetch('https://ghibliapi.vercel.app/films', {
         headers: {
@@ -11,11 +12,11 @@ export async function GET(request: Request) {
 
     if (apiResponse.ok) {
     const filmsData = await apiResponse.json();
-    NextResponse.json(filmsData);
+    return (filmsData);
    } 
     }catch (error) {
-    NextResponse.json({ error: 'Failed to fetch Ghibli films' });
+    return { error: 'Failed to fetch Ghibli films' }
     
    }
-    
+
 }

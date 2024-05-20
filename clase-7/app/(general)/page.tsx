@@ -20,6 +20,7 @@ export default async function Home() {
               </Button>
             </form>
       </nav>
+      <h1 className="text-center text-3xl font-bold uppercase py-4">Ghibli Films</h1>
       <ListMovies />
     </div>
   );
