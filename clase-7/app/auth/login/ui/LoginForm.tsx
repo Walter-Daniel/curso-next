@@ -41,8 +41,8 @@ export const LoginForm = () => {
     startTransition(() => {
       authenticate(values)
         .then((data) => {
-          setError(data.error)
-          setSuccess(data.success)
+          setError(data?.error)
+          // setSuccess(data?.success)
         })
     })
     // reset();
