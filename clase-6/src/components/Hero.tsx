@@ -2,37 +2,43 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { Button } from "@nextui-org/react";
 import { Titan_One } from "next/font/google";
 
-const titan = Titan_One({weight:"400", subsets: ["latin"] });
+interface Square {
+  id: number;
+  src: string;
+}
+
+const titan = Titan_One({ weight: "400", subsets: ["latin"] });
 
 export const Hero = () => {
   return (
     <section className="w-full px-8 py-12 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-6xl mx-auto min-h-[90vh]">
       <div>
-        <span className="block mb-4 text-xs md:text-sm text-orange-500 font-medium">
+        <span className="block mb-4 text-sm text-orange-400">
           Recomenda tu favorita
         </span>
-        <h3 className={`text-4xl md:text-6xl ${titan.className}`}>
+        <h3 className={`${titan.className} text-4xl md:text-6xl text-white`}>
           Sandwicherias Tucumán
         </h3>
-        <p className="text-base md:text-lg text-slate-500 my-4 md:my-6">
+        <p className="text-base md:text-lg text-slate-400 my-4 md:my-6">
           Un lugar en donde podrás encontrar los mejores sitios para comer el mejor sandwich de milanesa de Tucumán.
         </p>
-        <button className="bg-orange-500 text-white font-medium py-2 px-4 rounded transition-all hover:bg-indigo-600 active:scale-95">
+        <Button color="secondary">
           Seguir leyendo
-        </button>
+        </Button>
       </div>
       <ShuffleGrid />
     </section>
   );
 };
 
-const shuffle = (array) => {
+const shuffle = (array: Square[]): Square[] => {
   let currentIndex = array.length,
     randomIndex;
 
-  while (currentIndex != 0) {
+  while (currentIndex !== 0) {
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
 
@@ -45,7 +51,7 @@ const shuffle = (array) => {
   return array;
 };
 
-const squareData = [
+const squareData: Square[] = [
   {
     id: 1,
     src: "https://images.unsplash.com/photo-1547347298-4074fc3086f0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
@@ -72,8 +78,8 @@ const squareData = [
   }
 ];
 
-const generateSquares = () => {
-  return shuffle(squareData).map((sq) => (
+const generateSquares = (data: Square[]): JSX.Element[] => {
+  return data.map((sq) => (
     <motion.div
       key={sq.id}
       layout
@@ -87,25 +93,29 @@ const generateSquares = () => {
   ));
 };
 
-const ShuffleGrid = () => {
-  const timeoutRef = useRef(null);
-  const [squares, setSquares] = useState(generateSquares());
+
+const ShuffleGrid = (): JSX.Element => {
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [shuffledSquareData, setShuffledSquareData] = useState<Square[]>(shuffle(squareData));
+  const [squares, setSquares] = useState<JSX.Element[]>(generateSquares(shuffledSquareData));
 
   useEffect(() => {
     shuffleSquares();
 
-    return () => clearTimeout(timeoutRef.current);
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
   }, []);
 
   const shuffleSquares = () => {
-    setSquares(generateSquares());
+    setSquares(generateSquares(shuffledSquareData));
 
     timeoutRef.current = setTimeout(shuffleSquares, 3000);
   };
 
   return (
     <div className="grid grid-cols-3 grid-rows-2 h-[450px] gap-1">
-      {squares.map((sq) => sq)}
+      {squares}
     </div>
   );
 };
