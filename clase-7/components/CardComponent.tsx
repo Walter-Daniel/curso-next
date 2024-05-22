@@ -6,9 +6,9 @@ export const CardComponent = ({movie}:{movie: Movies }) => {
   return (
     <Card className="py-4 m-2">
       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-        <p className="text-tiny uppercase font-bold">{movie.original_title_romanised}</p>
+        <p className="text-tiny uppercase font-bold truncate">{movie.original_title_romanised}</p>
         <small className="text-default-500">{movie.release_date}</small>
-        <h4 className="font-bold text-large">Direction by: {movie.director}</h4>
+        <h5 className="font-bold truncate">Director: {movie.director}</h5>
       </CardHeader>
       <CardBody className="overflow-visible py-2">
         <Image

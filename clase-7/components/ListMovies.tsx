@@ -23,8 +23,8 @@ export const ListMovies = () => {
   return (
     <div>
       <div className='flex flex-wrap justify-center'>
-        {filmsData.map((film) => (
-          <CardComponent  movie={film}/>
+        {filmsData.map((film, index) => (
+          <CardComponent  movie={film} key={index}/>
         ))}
       </div>
     </div>

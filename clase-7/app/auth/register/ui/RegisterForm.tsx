@@ -78,18 +78,18 @@ export const RegisterForm = () => {
                   }
             </div>
                 {/* ALERT */}
-      {
-        error && <Alert message={error} type='error' onClose={() => setError("")} />
-      }
-      {
-        success && <Alert  message={success} type='success'  onClose={() => setSuccess("")}/>
-      }
+            {
+              error && <Alert message={error} type='error' onClose={() => setError("")} />
+            }
+            {
+              success && <Alert  message={success} type='success'  onClose={() => setSuccess("")}/>
+            }
             {/* BUTTONS */}
             <Button type='submit'
                 disabled={isPending}
                 className={`text-white rounded-md p-2 w-full ${isPending ? 'bg-gray-400' : 'bg-black'} mt-2`}
                 fullWidth>
-                Login
+                Register
             </Button>
             <div className="flex gap-2 pt-3">
               <p className='text-small'>Already have an account?</p>
