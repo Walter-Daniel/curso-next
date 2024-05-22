@@ -5,20 +5,10 @@ import {
     ContactPage,
     ErrorPage,
     Exoplanets,
-    HomePage,
-    LoginPage,
-    RegisterPage } from "../pages";
+    HomePage } from "../pages";
 import { LayoutPrincipal } from "../layout/LayoutPrincipal";
 
 export const router = createBrowserRouter([
-  {
-    path: "/login",
-    element: <LoginPage />
-  },
-  {
-    path: "/register",
-    element: <RegisterPage />
-  },
   {
     path: "/",
     element: <LayoutPrincipal />,

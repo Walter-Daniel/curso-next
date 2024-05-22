@@ -5,7 +5,7 @@ import PlanetIcon from '@mui/icons-material/Explore';
 export const ExoplanetInfoComponent: React.FC = () => {
   return (
       <Paper sx={{ padding:'2rem', marginBottom:'2rem' }}>
-        <Typography variant="h2" gutterBottom>
+        <Typography sx={{ typography:{xs: 'h4', md:'h2'} }} gutterBottom>
             Information About Exoplanets
         </Typography>
         <Typography variant="body1" gutterBottom>

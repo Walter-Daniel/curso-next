@@ -11,7 +11,7 @@ export const AboutPage: React.FC = () => {
                 <Paper style={{ height: '100%', padding:'2rem' }}>
                 <Grid container  spacing={2}>
                     <Grid item xs={12}>
-                            <Typography variant="h2" gutterBottom>Project Information</Typography>
+                            <Typography sx={{ typography:{xs: 'h4', md:'h2'} }} gutterBottom>Project Information</Typography>
                             <Typography variant="body1">
                                 ASTROWIKI is a project created for the intensive course by Hedy Software focusing on Next.js.
                                 This platform is dedicated to providing information about galaxies utilizing the NASA API.

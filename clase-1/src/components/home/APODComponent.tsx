@@ -39,7 +39,7 @@ export const APODComponent: React.FC<ApodDetailsProps> = ({ apodData }) => {
             {/* Primera sección con la información */}
             <Grid item xs={12} md={6}>
                 <Paper sx={{ padding:'2rem', height:'100%' }}>
-                    <Typography variant="h2">Photography of the Day</Typography>
+                    <Typography sx={{ typography:{xs: 'h4', md:'h2'} }}>Photography of the Day</Typography>
                     <Divider sx={{ margin:'1rem 0' }}/>
                     <Typography variant="h4" gutterBottom>{apodData.title}</Typography>
                     <Typography variant="h6" color={colorPrimary} gutterBottom>{apodData.copyright}</Typography>

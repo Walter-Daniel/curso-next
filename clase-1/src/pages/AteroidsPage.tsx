@@ -10,7 +10,7 @@ export const AsteroidsPage: React.FC = () => {
     <AsteroidsProvider>
     <Container style={{ marginTop: '6rem' }} className='fade-in'>
       <Paper sx={{ padding:'2rem' }}>
-        <Typography variant="h2" gutterBottom >
+        <Typography sx={{ typography:{xs: 'h4', md:'h2'} }} gutterBottom >
           Near-Earth asteroids 
         </Typography>
         <Typography variant='body1'>
