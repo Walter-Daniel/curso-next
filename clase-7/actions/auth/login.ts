@@ -1,18 +1,20 @@
 'use server'
 
 import { signInSchema } from '@/validations/user-schema';
-import { signIn } from '@/auth';
+import { signIn, signOut } from '@/auth';
 import * as z from 'zod';
 import { DEFAULT_LOGIN_REDIRECT } from '@/routes';
 import { AuthError } from 'next-auth';
  
 export const authenticate = async(
-//   prevState: string | undefined,
   values: z.infer<typeof signInSchema>
 ) => {
+
+    console.log('desde action login: ', values)
     
     const validatedFields = signInSchema.safeParse(values);
 
+    console.log('estan llegando los valores??: ', values)
     if(!validatedFields.success) {
         return {error: 'Invalid credentials'};
     }
@@ -37,3 +39,7 @@ export const authenticate = async(
         throw error;
     }
 };
+
+export const logout = async() => {
+    await signOut({ redirectTo: "/auth/login" })
+}

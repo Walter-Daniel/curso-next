@@ -1,10 +1,10 @@
 'use client'
-import { type signOut, } from '@/auth';
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Button} from '@nextui-org/react';
 
 import { Title } from './Title';
+import { logout } from '@/actions/auth/login';
 
-export const NavbarComponent = (logout:any) => {
+export const NavbarComponent = () => {
  
 
   return (
@@ -18,11 +18,10 @@ export const NavbarComponent = (logout:any) => {
       </NavbarContent>
       <NavbarContent justify="end">
             <NavbarItem>
-              <Button onClick={logout}>
+              <Button onClick={() => logout()}>
                 Logout
               </Button>
             </NavbarItem>
-          
       </NavbarContent>
     </Navbar>
   );

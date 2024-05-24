@@ -10,9 +10,12 @@ import { Alert, FormAuth, Title } from '@/components';
 import { authenticate } from '@/actions/auth/login';
 import { useState, useTransition } from 'react';
 import { Button } from '@nextui-org/react';
+import { useRouter } from 'next/navigation';
 
 
 export const LoginForm = () => {
+
+  const route = useRouter()
 
   const [ isPending, startTransition ] = useTransition();
   const [success, setSuccess] = useState<string | undefined>("");
@@ -41,6 +44,7 @@ export const LoginForm = () => {
           setError(data?.error)
           // setSuccess(data?.success)
         })
+      route.refresh();
     })
     // reset();
   };
