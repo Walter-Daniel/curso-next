@@ -36,7 +36,7 @@ export const FormBlog = ({user}:{user: User}) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
-    }).then((value) => reset() )
+    }).then((value) => router.refresh() )
 
   }
 
@@ -48,11 +48,9 @@ export const FormBlog = ({user}:{user: User}) => {
     reset();
   }
 
-
-  
   return (
    
-        <form onSubmit={handleSubmit(onSubmit)} className="bg-slate-200 p-5 md:p-10 w-[100%] rounded-xl shadow-xl fade-in">
+        <form onSubmit={handleSubmit(onSubmit)} className="bg-slate-200 p-5 md:p-10 w-[100%] rounded-xl shadow-xl fade-in text-black">
           <div className="pb-4">
             <Title size="2xl">
               Crear recomendación

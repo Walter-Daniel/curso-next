@@ -4,53 +4,28 @@ import Image from "next/image";
 import { Title } from "./Title";
 import profileIMG from "../../public/profile.jpg";
 import { User } from "firebase/auth";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { collection, onSnapshot } from "firebase/firestore";
+import { db } from "@/lib/firebase-config";
 
-interface Recomendation {
+interface Recommendation {
   title: string;
   id: string;
 }
 
 interface RecommendationResponse {
   message: string;
-  recommendationsData: Recomendation[];
+  recommendationsData: Recommendation[];
 }
 
-export const Posts = ({ user }: { user: User }) => {
-  const [recommendation, setRecommendation] =
-    useState<RecommendationResponse | null>(null);
-
-  useEffect(() => {
-    const fetchRecommendation = async () => {
-      try {
-        const response = await fetch(`/api/blog/${user!.uid}`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-
-        if (!response.ok) {
-          console.log(`API request failed with status ${response.status}`);
-        }
-
-        const data = await response.json();
-        setRecommendation(data);
-      } catch (error) {
-        console.error("Error fetching recommendation:", error);
-      }
-    };
-
-    fetchRecommendation();
-  }, []);
-
-  console.log(recommendation?.recommendationsData);
+export const Posts = ({recommendations}: {recommendations: Recommendation[]}) => {
+  
 
   return (
     <>
       <Title size="2xl">Publicaciones:</Title>
 
-      {recommendation?.recommendationsData.map((data, index) => (
+      {recommendations.map((data, index) => (
         <div
           className="flex flex-col p-4 bg-gray-800 border-gray-800 shadow-md hover:shodow-lg rounded-2xl cursor-pointer transition ease-in duration-400  transform hover:scale-105"
           key={index}

@@ -1,20 +1,43 @@
 'use client'
 
 import { FormBlog, Posts, ProfileCard, Stats, Title } from "@/components";
-import { auth } from "@/lib/firebase-config";
+import { auth, db } from "@/lib/firebase-config";
 import { onAuthStateChanged, User } from "firebase/auth";
+import { collection, onSnapshot } from "firebase/firestore";
 import { useEffect, useState } from "react";
+
+
+interface Recommendation {
+  title: string;
+  id: string;
+}
+
+interface RecommendationResponse {
+  message: string;
+  recommendationsData: Recommendation[];
+}
+
+
 
 export default function Profile() {
 
   const [user, setUser] = useState<User | null>(null);
+  const [recommendations, setRecommendations] = useState<Recommendation[] | []>([]);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
     });
-        
+    
+    const unsubscribeRef = onSnapshot(collection(db, 'recommendations'), (querySnapshot) => {
+      const recomendations:Recommendation[] = querySnapshot.docs.map((doc) => doc.data() as Recommendation);
+      setRecommendations(recomendations);
+      console.log("recomendations ", recomendations);
+    });
+    () => unsubscribeRef();
+
     return () => unsubscribe();
+        
   }, []);
 
   return (
@@ -40,7 +63,7 @@ export default function Profile() {
               {/* <!--elements--> */}
               <div className="flex flex-col space-y-4 row-span-2 col-span-4 text-white">
                 {/* <!-- elements 1 --> */}
-               <Posts user={user}/>
+               <Posts recommendations={recommendations}/>
               </div>
             </div>
           </div>
