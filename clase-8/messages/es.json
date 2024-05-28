@@ -1,0 +1,27 @@
+{
+    "Index": {
+      "title": "Especie Exótica",
+      "description": "Una especie exótica es aquella que se presenta en áreas fuera de su rango de distribución natural como resultado de transporte a larga distancia intencional o accidentalmente llevado a cabo por el hombre (Grau y Aragón, 2000). Por otro lado, una especie invasora es aquella especie no nativa que amenaza ecosistemas, hábitats o especies. Hay muchas formas en las que las especies exóticas actúan al ingresar en un nuevo hábitat, hay ejemplos de cómo alteran la vía evolutiva de distintas especies nativas por exclusión competitiva, desplazamiento de nicho, hibridación, introgresión, predación, y últimamente extinción (Mooney and Cleland, 2001). Además de afectar la diversidad y composición de las comunidades nativas, las especies invasoras pueden afectar los servicios ecosistémicos de los cuales dependemos, como ser: provisión de comidas, fibras y combustibles (plantas invasoras no palatables que causan pérdidas en el forrajeo del ganado y perdida monetaria para su control); provisión y regulación de recursos hídricos (pueden cambiar el flujo del agua potable y de riego por presentar distintas características a las nativas); polinización (desplazamiento de polinizadores específicos por la abeja melífera) o cambio en el ciclado de nutrientes del suelo a causa de plantas invasoras de follaje anual (Pejchar and Mooney, 2009).",
+      "btn": "Ver más"
+    },
+    "rutaceae": {
+        "title": "Limón",
+        "intro": "El limón es un cítrico conocido por su sabor ácido y aroma distintivo, perteneciente a la familia Rutaceae y a la especie Citrus limon. Esta fruta es ampliamente utilizada tanto en la cocina como en la medicina tradicional debido a sus múltiples propiedades beneficiosas.",
+        "subtitle-description": "Descripción",
+        "description": {
+            "origin": "Se cree que los limones se originaron en el norte de la India y fueron introducidos en Europa alrededor del siglo I d.C. a través de Persia y Arabia.",
+            "characteristics": "El limón es un fruto ovalado con una piel rugosa y de color amarillo brillante cuando está maduro. Internamente, está dividido en varios gajos llenos de jugo ácido",
+            "plant":"El árbol de limón es un pequeño árbol perenne que puede alcanzar una altura de entre 3 y 6 metros. Tiene hojas verdes y flores blancas que pueden tener un aroma dulce"
+
+        },
+        "subtitle-importance": "Importancia",
+        "importance":{
+            "nutritional": "Los limones son ricos en vitamina C, un antioxidante esencial que ayuda a fortalecer el sistema inmunológico. También contienen cantidades menores de vitaminas B, potasio, magnesio y fibra.",
+            "medicinal": " La vitamina C y otros compuestos antioxidantes en los limones ayudan a combatir el daño celular y pueden reducir el riesgo de enfermedades crónicas.",
+            "culinary": "El jugo y la ralladura de limón son utilizados para dar sabor a una amplia variedad de platos, desde marinados y salsas hasta postres y bebidas."
+        }
+    },
+    "navbar": {
+        "link": "Inicio"
+    }
+}

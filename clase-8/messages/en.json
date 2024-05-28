@@ -1,0 +1,27 @@
+{
+    "Index": {
+      "title": "Exotic species",
+      "description": "An exotic species is one that appears in areas outside of its natural distribution range as a result of long-distance transportation intentionally or accidentally carried out by humans (Grau and Aragón, 2000). On the other hand, an invasive species is a non-native species that threatens ecosystems, habitats, or species. There are many ways in which exotic species act upon entering a new habitat. There are examples of how they alter the evolutionary pathway of different native species through competitive exclusion, niche displacement, hybridization, introgression, predation, and ultimately extinction (Mooney and Cleland, 2001). In addition to affecting the diversity and composition of native communities, invasive species can affect the ecosystem services we depend on, such as: the provision of food, fibers, and fuels (unpalatable invasive plants causing losses in livestock forage and monetary loss for their control); the provision and regulation of water resources (they can change the flow of drinking and irrigation water by presenting different characteristics than native species); pollination (displacement of specific pollinators by the honeybee); or changes in soil nutrient cycling due to annual foliage invasive plants (Pejchar and Mooney, 2009).",
+        "btn": "See more"
+    },
+    "rutaceae": {
+        "title": "Lemon",
+        "intro": "The lemon is a citrus fruit known for its tart flavor and distinctive aroma, belonging to the Rutaceae family and the species Citrus limon. This fruit is widely used both in cooking and traditional medicine due to its numerous beneficial properties.",
+        "subtitle-description": "Description",
+        "description": {
+            "origin": "Lemons are believed to have originated in northern India and were introduced to Europe around the 1st century AD through Persia and Arabia.",
+            "characteristics": "El limón es un fruto ovalado con una piel The lemon is an oval-shaped fruit with a rough, bright yellow skin when ripe. Internally, it is divided into several juicy segments.",
+            "plant":"The lemon tree is a small evergreen tree that can reach a height of between 3 and 6 meters. It has green leaves and white flowers that may have a sweet aroma."
+
+        },
+        "subtitle-importance": "Importance",
+        "importance":{
+            "nutritional": "Vitamins and Minerals: Lemons are rich in vitamin C, an essential antioxidant that helps boost the immune system. They also contain smaller amounts of B vitamins, potassium, magnesium, and fiber.",
+            "medicinal": "The vitamin C and other antioxidant compounds in lemons help combat cellular damage and may reduce the risk of chronic diseases.",
+            "culinary": "Lemon juice and zest are used to add flavor to a wide variety of dishes, from marinades and sauces to desserts and beverages."
+        }
+    },
+    "navbar": {
+        "link": "Home"
+    }
+}
