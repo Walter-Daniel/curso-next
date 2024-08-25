@@ -7,9 +7,6 @@ import { userSchema } from "@/validations/user-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Alert, FormAuth, Title } from '@/components';
 import { Inputs } from '@/app/interfaces/auth';
-import Image from 'next/image';
-import googleIMG from '@/public/google.png'
-import githubIMG from '@/public/github.png'
 import { signup } from '@/actions/auth/register';
 import { Button } from '@nextui-org/react';
 import { useState, useTransition } from 'react';
@@ -36,6 +33,7 @@ export const RegisterForm = () => {
         .then((data) => {
           setError(data.error)
           setSuccess(data.success)
+          if(data.success) return reset()
         })
     })
   }
