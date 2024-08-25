@@ -5,7 +5,6 @@ import bcrypt from 'bcryptjs';
 import { signInSchema } from './validations/user-schema';
 import { getUserByEmail } from './data/user';
 
-signInSchema
  //Edge compatibility
 export default {
     providers: [

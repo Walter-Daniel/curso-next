@@ -5,7 +5,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { signInSchema } from '@/validations/user-schema';
 import { Inputs } from '@/app/interfaces/auth';
-import { Alert, FormAuth, Title } from '@/components';
+import { Alert, Title } from '@/components';
 
 import { authenticate } from '@/actions/auth/login';
 import { useState, useTransition } from 'react';
@@ -14,19 +14,12 @@ import { useRouter } from 'next/navigation';
 
 
 export const LoginForm = () => {
-
   const route = useRouter()
-
-  const [ isPending, startTransition ] = useTransition();
+  const [isPending, startTransition] = useTransition();
   const [success, setSuccess] = useState<string | undefined>("");
   const [error, setError] = useState<string | undefined>("");
-  
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<Inputs>({
+
+  const { register, handleSubmit, formState: { errors } } = useForm<Inputs>({
     resolver: zodResolver(signInSchema),
   });
 
@@ -49,7 +42,6 @@ export const LoginForm = () => {
     // reset();
   };
 
-  console.log(error, success)
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -60,13 +52,41 @@ export const LoginForm = () => {
           Purple.dev
         </Title>
       </div>
-      <FormAuth register={register} errors={errors} />
+      <div className="flex flex-col pb-5 relative ">
+        <label htmlFor="email" className="pb-1">Email</label>
+        <input
+          type="email"
+          id="email"
+          defaultValue={"prueba@email.com"}
+          placeholder="jhon@example.com"
+          className="border-small rounded-md p-2 bg-white border-gray-300 font-medium"
+          {...register('email')}
+        />
+        {
+          errors.email?.message && <small className="text-red-500 absolute bottom-0">{errors.email?.message}</small>
+        }
+      </div>
+      {/* Password */}
+      <div className="flex flex-col pb-5 relative">
+        <label htmlFor="passowrd" className="pb-1">Password</label>
+        <input
+          type="password"
+          id="password"
+          defaultValue={"123456"}
+          placeholder="Insert your password here"
+          className="border-small rounded-md p-2 border-gray-300 font-medium"
+          {...register('password')}
+        />
+        {
+          errors.password?.message && <small className="text-red-500 absolute bottom-0">{errors.password?.message}</small>
+        }
+      </div>
       {/* ALERT */}
       {
         error && <Alert message={error} type='error' onClose={() => setError("")} />
       }
       {
-        success && <Alert  message={success} type='success'  onClose={() => setSuccess("")}/>
+        success && <Alert message={success} type='success' onClose={() => setSuccess("")} />
       }
       {/* BUTTONS */}
       <Button type='submit'

@@ -33,5 +33,4 @@ export const signup = async(
 
     return { success: 'User Created' }
 
-    // return { success: 'Email sent!' }
 }
